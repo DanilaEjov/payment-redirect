@@ -38,31 +38,30 @@
     <p id="msg"></p>
     <a class="btn" id="btn" href="#">...</a>
   </div>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const platform = params.get('platform') || 'web';
+  const platform = window.location.hash.replace('#', '') || 'web';
 
-    let redirectUrl, msgText, btnText;
+let redirectUrl, msgText, btnText;
 
-    if (platform === 'telegram' || platform === 'max') {
-      redirectUrl = platform === 'telegram'
-        ? 'https://t.me/SmartLab_AiBot?startapp=0870e4a2fb929e3a'
-        : 'https://max.ru/SmartLab_AiBot?startapp=0870e4a2fb929e3a';
-      msgText = 'Сейчас вы будете перенаправлены обратно в Mini App…';
-      btnText = 'Вернуться в Mini App';
-    } else {
-      redirectUrl = 'https://smarthealth24.ru/thank-you.html';
-      msgText = 'Сейчас вы будете перенаправлены на сайт…';
-      btnText = 'Перейти на сайт';
-    }
+if (platform === 'telegram') {
+  redirectUrl = 'https://t.me/SmartLab_AiBot?startapp=0870e4a2fb929e3a';
+  msgText = 'Сейчас вы будете перенаправлены в Mini App…';
+  btnText = 'Вернуться в Mini App';
+} else if (platform === 'max') {
+  redirectUrl = 'https://max.ru/SmartLab_AiBot?startapp=0870e4a2fb929e3a';
+  msgText = 'Сейчас вы будете перенаправлены в Mini App…';
+  btnText = 'Вернуться в Mini App';
+} else {
+  redirectUrl = 'https://smarthealth24.ru/thank-you.html';
+  msgText = 'Сейчас вы будете перенаправлены на сайт…';
+  btnText = 'Перейти на сайт';
+}
 
-    document.getElementById('msg').textContent = msgText;
-    document.getElementById('btn').textContent = btnText;
-    document.getElementById('btn').href = redirectUrl;
+document.getElementById('msg').textContent = msgText;
+document.getElementById('btn').textContent = btnText;
+document.getElementById('btn').href = redirectUrl;
 
-    setTimeout(() => {
-      window.location.href = redirectUrl;
-    }, 1500);
-  </script>
+setTimeout(() => {
+  window.location.href = redirectUrl;
+}, 1500);
 </body>
 </html>
