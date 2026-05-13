@@ -43,7 +43,7 @@
     var platform = params.get('Shp_platform') || 'web';
     var redirectUrl, msgText, btnText;
     if (platform === 'telegram') {
-      redirectUrl = 'tg://resolve?domain=SmartLab_AiBot&startapp=0870e4a2fb929e3a';
+      redirectUrl = 'https://t.me/SmartLab_AiBot?startapp=0870e4a2fb929e3a';
       msgText = 'Сейчас вы будете перенаправлены в Mini App…';
       btnText = 'Вернуться в Mini App';
     } else if (platform === 'max') {
@@ -58,9 +58,7 @@
     document.getElementById('msg').textContent = msgText;
     document.getElementById('btn').textContent = btnText;
     document.getElementById('btn').href = redirectUrl;
-    setTimeout(function() {
-      window.location.href = redirectUrl;
-    }, 1500);
+   
   </script>
 </body>
 </html>
