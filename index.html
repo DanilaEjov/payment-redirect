@@ -36,7 +36,7 @@
     <div class="icon">✅</div>
     <h1>Оплата прошла успешно!</h1>
     <p id="msg"></p>
-    <a class="btn" id="btn" href="#">...</a>
+    <button class="btn" id="btn" onclick="go()">...</button>
   </div>
   <script>
     var params = new URLSearchParams(window.location.search);
@@ -57,7 +57,7 @@
     }
     document.getElementById('msg').textContent = msgText;
     document.getElementById('btn').textContent = btnText;
-    document.getElementById('btn').href = redirectUrl;
+    function go() { window.location.href = redirectUrl; }
    
   </script>
 </body>
