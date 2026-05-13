@@ -60,7 +60,7 @@
     document.getElementById('btn').textContent = btnText;
     function go() {
   if (window.Telegram && window.Telegram.WebApp) {
-    window.Telegram.WebApp.close();
+    window.Telegram.WebApp.openTelegramLink('https://t.me/SmartLab_AiBot?startapp=0870e4a2fb929e3a');
   } else {
     window.location.href = redirectUrl;
   }
