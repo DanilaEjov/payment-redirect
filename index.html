@@ -30,6 +30,7 @@
       font-weight: 600;
     }
   </style>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
   <div class="card">
@@ -57,7 +58,13 @@
     }
     document.getElementById('msg').textContent = msgText;
     document.getElementById('btn').textContent = btnText;
-    function go() { window.location.href = redirectUrl; }
+    function go() {
+  if (window.Telegram && window.Telegram.WebApp) {
+    window.Telegram.WebApp.close();
+  } else {
+    window.location.href = redirectUrl;
+  }
+}
    
   </script>
 </body>
